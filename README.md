@@ -1,3 +1,20 @@
+# Algo Visualizer Website Link -
+
+- Algo Visualizer Link -
+https://KedarKK1.githib.io/Data-structures-and-Algorithm-Visualizer
+
+## Collaborations for future improvements are always welcomed
+
+## For deployment purposes
+``` sh
+npm run deploy
+```
+Or 
+
+```sh
+yarn install
+``` 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
