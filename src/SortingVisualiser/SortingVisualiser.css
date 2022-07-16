@@ -1,17 +1,17 @@
 .array-container{
-    /* display: flex;
+    display: flex;
     justify-content:center;
-    align-items:center;
-    align-self: center; */
-    position: absolute;
+    /* align-items:center; */
+    /* align-self: center; */
     /* height: 50vh; */
-    left:100px;
+    /* position: absolute;
+    left:100px; */
 }
 .array-bar{
-    width:15px;
+    /* width:15px; */
     /* height:30px; */
     background-color: aqua;
     display: inline-block;
-    /* margin: 0 2px; */
-    margin: 0 5px;
+    margin: 0 7px;
+    /* margin: 0 5px; */
 }

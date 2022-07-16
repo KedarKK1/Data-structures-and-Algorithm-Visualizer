@@ -1,9 +1,11 @@
-import React from 'react'
+import * as React from 'react'
 import {getMergeSortAnimations} from '../mySortingsAlgo/sortingAlgos'
 import './SortingVisualiser.css'
+// import { useState } from 'react';
+import Form from 'react-bootstrap/Form';
 
 // Change this value for the speed of the animations.
-const ANIMATION_SPEED_MS = 25.5;
+// const ANIMATION_SPEED_MS = 1.1;
 
 // Change this value for the number of bars (value) in the array.
 const NUMBER_OF_ARRAY_BARS = 45;
@@ -13,6 +15,7 @@ const PRIMARY_COLOR = 'torquoise';
 
 // This is the color of array bars that are being compared throughout the animations.
 const SECONDARY_COLOR = 'red';
+// let sliderValue = 50
 
 export default class SortingVisualiser extends React.Component {
     constructor(props){
@@ -20,6 +23,10 @@ export default class SortingVisualiser extends React.Component {
 
         this.state = {
             array: [],
+            // giveColor: 'blue',
+            ANIMATION_SPEED_MS: 25,
+            COLUMN_WIDTH: 10,
+            // COLUMN_NUMBER: 45,
         };
     }
 
@@ -30,8 +37,10 @@ export default class SortingVisualiser extends React.Component {
     resetArray(){
         const array = [];
         for(let i=0;i<NUMBER_OF_ARRAY_BARS;i++){
+        // for(let i=0;i<this.state.COLUMN_NUMBER;i++){
             array.push(randomIntFromInterval(5,500));//we are allowing duplicate values
         }
+        // this.setState({giveColor: 'blue'})
         this.setState({ array}); //same as {array:array}
     }
 
@@ -59,13 +68,13 @@ export default class SortingVisualiser extends React.Component {
                 setTimeout(() =>{
                     barOneStyle.backgroundColor = color;
                     barTwoStyle.backgroundColor = color;
-                }, i * ANIMATION_SPEED_MS);
+                }, i * this.state.ANIMATION_SPEED_MS);
             } else {
                 setTimeout(() =>{
                     const [barOneInx, newHeight] = animations[i];
                     const barOneStyle =  arrayBars[barOneInx].style;
                     barOneStyle.height = `${newHeight}px`;
-                }, i * ANIMATION_SPEED_MS);
+                }, i * this.state.ANIMATION_SPEED_MS);
             }
         }
     }
@@ -78,28 +87,50 @@ export default class SortingVisualiser extends React.Component {
 
     }
 
+    changeAnimationSpeed(ANIMATION_SPEED_MS){
+        this.setState({ANIMATION_SPEED_MS});
+        // console.log(ANIMATION_SPEED_MS);
+    }
+    changeColumnWidth(COLUMN_WIDTH){
+        this.setState({COLUMN_WIDTH})
+        // console.log(COLUMN_WIDTH);
 
+    }
+    // changeColumnNumber(COLUMN_NUMBER){
+    //     this.setState({COLUMN_NUMBER})
+    //     // console.log(COLUMN_NUMBER);
+    // }
 
   render() {
-    const {array} = this.state;
+    let {array} = this.state;
+    // console.log(giveColor)
     return (
-      <div className="array-container">
-          {array.map((value,indx)=>(
-            <div 
-                className="array-bar" 
-                key={indx} 
-                style={{height: `${value}px`,}}>
-                {value}
+        <>
+            <Form.Label>Speed of Animation</Form.Label>
+            <Form.Range defaultValue={this.state.ANIMATION_SPEED_MS} max={100} min={1} onChange={e=> this.changeAnimationSpeed(e.target.value)} />
+            <Form.Label>Column Width</Form.Label>
+            <Form.Range defaultValue={this.state.COLUMN_WIDTH} max={50} min={1} onChange={e=> this.changeColumnWidth(e.target.value)} />
+            {/* <Form.Label>Column Numbers</Form.Label>
+            <Form.Range defaultValue={this.state.COLUMN_NUMBER} max={200} min={1} onChange={e=> this.changeColumnNumber(e.target.value)} /> */}
+          
+            <div className="array-container">
+                {array.map((value,indx)=>(
+                    <div 
+                        className="array-bar" 
+                        key={indx} 
+                        style={{height: `${value}px`, width: `${this.state.COLUMN_WIDTH}px` }}>
+                        |{value}|
+                    </div>
+                        
+                ))}
+                <br />
             </div>
-                
-          ))}
-          <br />
-          <button onClick={()=>this.resetArray()}>Regenerate</button>
-          <button onClick={()=>this.quickSort()}>quickSort</button>
-          <button onClick={()=>this.mergeSort2()}>mergeSort</button>
-          <button onClick={()=>this.heapSort()}>heapsort</button>
-          <button onClick={()=>this.bubbleSort()}>bubbleSort</button>
-      </div>
+            <button onClick={()=>this.resetArray()}>Regenerate</button>
+            <button onClick={()=>this.quickSort()}>quickSort</button>
+            <button onClick={()=>this.mergeSort2()}>mergeSort</button>
+            <button onClick={()=>this.heapSort()}>heapsort</button>
+            <button onClick={()=>this.bubbleSort()}>bubbleSort</button>
+        </>
     )
   }
 }
