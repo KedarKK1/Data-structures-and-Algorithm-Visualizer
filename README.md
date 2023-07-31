@@ -1,24 +1,29 @@
-# Event Screenshots
+# Screenshots(WAIT FOR LOADING BIG, HEAVY GIFs)
 
-<img src="./Screenshots/ss1.gif" alt="merge_sort" />
-<img src="./Screenshots/ss2.gif" alt="merge_sort_slower" />
+<img src="./Screenshots/ss1copy.gif" alt="merge_sort" />
+
+<!-- <img src="./Screenshots/ss1.gif" alt="merge_sort_gif" /> -->
+speed changed - 
+<img src="./Screenshots/ss2copy.gif" alt="merge_sort_slower" />
 
 # Algo Visualizer Website Link -
 
 - Algo Visualizer Link -
-https://KedarKK1.githib.io/Data-structures-and-Algorithm-Visualizer
+  https://KedarKK1.githib.io/Data-structures-and-Algorithm-Visualizer
 
 ## Collaborations for future improvements are always welcomed
 
 ## For deployment purposes
-``` sh
+
+```sh
 npm run deploy
 ```
-Or 
+
+Or
 
 ```sh
 yarn install
-``` 
+```
 
 # Getting Started with Create React App
 
