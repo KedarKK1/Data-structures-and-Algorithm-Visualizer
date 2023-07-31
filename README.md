@@ -1,3 +1,8 @@
+# Event Screenshots
+
+<img src="./Screenshots/ss1.gif" alt="merge_sort" />
+<img src="./Screenshots/ss2.gif" alt="merge_sort_slower" />
+
 # Algo Visualizer Website Link -
 
 - Algo Visualizer Link -

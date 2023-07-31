@@ -48,6 +48,10 @@ export default class SortingVisualiser extends React.Component {
 
     }
 
+    normalSort(){
+        
+    }
+
     mergeSort2(){
         // // to avoid 5 > 100 in js, we use sort((a,b)=>a-b)
         // // otherwise it will be giving false values
